@@ -10,6 +10,11 @@ public class CameraFollow : MonoBehaviour
 
     [SerializeField] float smoothing = 0.05f;   // factor by which camera movements are smoothed
 
+    private void Start()
+    {
+        gameObject.transform.position = new Vector3(SavePosition.Load().x, SavePosition.Load().y + 1.5f , -10);
+    }
+
     void FixedUpdate()
     {
 
