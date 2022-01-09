@@ -8,7 +8,7 @@ public class CameraFollow : MonoBehaviour
     private Vector3 velocity = Vector3.zero;    // targer velocity of camera when player is not moving
     private float cameraY;                      // vertical position of camera, used to lock camera movements below the 0 on Y axis
 
-    [SerializeField] float smoothing = 0.05f;   // factor by which camera movements are smoothed
+    [SerializeField] float smoothing = 0.01f;   // factor by which camera movements are smoothed
 
     private void Start()
     {

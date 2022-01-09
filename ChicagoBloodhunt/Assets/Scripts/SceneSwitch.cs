@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneSwitch : MonoBehaviour // Script used to load new scene
 {
     Vector2 targetPos;
+    public Animator transition;
 
     public virtual void Start()
     {
@@ -16,13 +17,25 @@ public class SceneSwitch : MonoBehaviour // Script used to load new scene
     // Used to switch scene to one with SceneName
     public void SwitchScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        StartCoroutine(AnimationCoroutine(sceneName));
     }
 
     // Used to switch scene while saving the targetPosition Vector2
     public void SwitchSceneTargetPosition(string sceneName, Vector2 targetPosition)
     {
-        SceneManager.LoadScene(sceneName);
         SavePosition.Save(targetPosition);
+
+        Time.timeScale = 0f;
+        StartCoroutine(AnimationCoroutine(sceneName));
+    }
+
+    IEnumerator AnimationCoroutine(string sceneName)
+    {
+        transition.SetTrigger("Play");
+
+        yield return new WaitForSecondsRealtime(.5f);
+
+        SceneManager.LoadScene(sceneName);
+        Time.timeScale = 1f;
     }
 }
