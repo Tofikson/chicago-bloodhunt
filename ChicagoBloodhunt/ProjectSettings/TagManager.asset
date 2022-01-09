@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Doors
+  - Gun
   layers:
   - Default
   - TransparentFX

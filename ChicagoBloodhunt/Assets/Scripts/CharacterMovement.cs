@@ -9,8 +9,12 @@ public class CharacterMovement : MonoBehaviour
     private Vector3 velocity = Vector3.zero;                // target velocity of character if nothing is happening
     private float groundRadius = .2f;                       // radius of the point used to determine if grounded
 
+    private List<string> Guns;
+
     bool isJumping = false;                                 // check if character wants to jump
     bool isOnGround = false;                                // check if character is on ground
+    bool isLeft;                                            // check if player faces left
+    bool IsRight;                                           // check if player faces right
 
     [SerializeField] private float speed = 10f;             // horizontal speed factor
     [SerializeField] private float smoothing = 0.1f;        // factor by which movement smoothing is applied
@@ -22,13 +26,27 @@ public class CharacterMovement : MonoBehaviour
     void Start()
     {
         rigidbody2D = GetComponent(typeof(Rigidbody2D)) as Rigidbody2D;
+        Guns = new List<string>();
+        IsRight = true;
     }
 
     void Update()
     {
         // Calculate character velocity in horizontal axis based on which (if any) button is pressed
         horVel = Input.GetAxisRaw("Horizontal") * speed;
-
+        // Character fliping
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            IsRight = false;
+            isLeft = true;
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            IsRight = true;
+            isLeft = false;
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
         // Check if player pressed Spacebar
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -70,6 +88,19 @@ public class CharacterMovement : MonoBehaviour
         if (Input.GetAxisRaw("Vertical") == -1f && !isOnGround)
         {
             rigidbody2D.AddForce(new Vector2(0f, groundSlamForce *-1), ForceMode2D.Impulse);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // If player collects a gun, weapon object disappears
+        //TO DO make it keep the inventory
+        if (collision.CompareTag("Gun"))
+        {
+            string itemType = collision.gameObject.GetComponent<CollectGun>().itemType;
+            print("Podniesiono "+itemType);
+            Guns.Add(itemType);
+            Destroy(collision.gameObject);
         }
     }
 }

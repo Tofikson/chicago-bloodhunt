@@ -154,7 +154,6 @@ MonoBehaviour:
     m_Bits: 64
   groundCheck: {fileID: 817298415087639662}
   groundSlamForce: 1
-  jumpCooldown: 0.3
 --- !u!114 &7390030151339762402
 MonoBehaviour:
   m_ObjectHideFlags: 0
