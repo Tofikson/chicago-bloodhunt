@@ -9,9 +9,10 @@ public class BulletTravel : MonoBehaviour
 
 // Start is called before the first frame update
     void Start()
-        {
+    {
         impact.velocity = transform.right * bulletspeed;
-        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(collision.name);

@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitch : MonoBehaviour // Script used to load new scene
 {
-    Vector2 targetPos;
     public Animator transition;
 
     public virtual void Start()
     {
         // when the new scene is loaded, character position and camera position is set to one stored in SavePosition.cs Vector2 position
         GameObject.Find("Player").transform.position = SavePosition.Load();
+        SaveWeapons.Load();
     }
 
     // Used to switch scene to one with SceneName
@@ -24,6 +24,7 @@ public class SceneSwitch : MonoBehaviour // Script used to load new scene
     public void SwitchSceneTargetPosition(string sceneName, Vector2 targetPosition)
     {
         SavePosition.Save(targetPosition);
+        SaveWeapons.Save();
 
         Time.timeScale = 0f;
         StartCoroutine(AnimationCoroutine(sceneName));

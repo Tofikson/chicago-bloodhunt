@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class SwitchWeapon : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    Weapon currentWeapon; // Weapon currently used by the player
+
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        // If player pressed the Q, then he will switch weapon to the next one in his inventory
+        if (Input.GetKeyDown(KeyCode.Q) && !(GameObject.Find("Player").GetComponent<Shooting>().currentWeapon == null))
         {
-            switchWeapons();
+            Debug.Log("Switching weapons");
+            currentWeapon = GameObject.Find("Player").GetComponent<Shooting>().currentWeapon;
+            GameObject.Find("Player").GetComponent<Shooting>().currentWeapon = WeaponsInventory.instance.NextWeapon(currentWeapon);
         }
     }
 
-    void switchWeapons()
-    {
-        foreach (Transform weapon in transform)
-        {
-            weapon.gameObject.SetActive(!weapon.gameObject.activeSelf);
-        }
-    }
 }

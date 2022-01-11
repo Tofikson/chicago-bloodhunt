@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
-    private Rigidbody2D rigidbody2D;
+    new private Rigidbody2D rigidbody2D;
     private float horVel = 0f;                              // character horizontal velocity
     private Vector3 velocity = Vector3.zero;                // target velocity of character if nothing is happening
     private float groundRadius = .2f;                       // radius of the point used to determine if grounded
 
-    private List<string> Guns;
-
     bool isJumping = false;                                 // check if character wants to jump
     bool isOnGround = false;                                // check if character is on ground
     bool isLeft;                                            // check if player faces left
-    bool IsRight;                                           // check if player faces right
+    bool isRight;                                           // check if player faces right
 
     [SerializeField] private float speed = 10f;             // horizontal speed factor
     [SerializeField] private float smoothing = 0.1f;        // factor by which movement smoothing is applied
@@ -26,8 +24,7 @@ public class CharacterMovement : MonoBehaviour
     void Start()
     {
         rigidbody2D = GetComponent(typeof(Rigidbody2D)) as Rigidbody2D;
-        Guns = new List<string>();
-        IsRight = true;
+        isRight = true;
     }
 
     void Update()
@@ -37,13 +34,13 @@ public class CharacterMovement : MonoBehaviour
         // Character fliping
         if(Input.GetKeyDown(KeyCode.A))
         {
-            IsRight = false;
+            isRight = false;
             isLeft = true;
             transform.eulerAngles = new Vector3(0, 180, 0);
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            IsRight = true;
+            isRight = true;
             isLeft = false;
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
@@ -88,19 +85,6 @@ public class CharacterMovement : MonoBehaviour
         if (Input.GetAxisRaw("Vertical") == -1f && !isOnGround)
         {
             rigidbody2D.AddForce(new Vector2(0f, groundSlamForce *-1), ForceMode2D.Impulse);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        // If player collects a gun, weapon object disappears
-        //TO DO make it keep the inventory
-        if (collision.CompareTag("Gun"))
-        {
-            string itemType = collision.gameObject.GetComponent<CollectGun>().itemType;
-            print("Podniesiono "+itemType);
-            Guns.Add(itemType);
-            Destroy(collision.gameObject);
         }
     }
 }
