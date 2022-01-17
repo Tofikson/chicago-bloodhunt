@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   name: Pistol
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 9f6a3904053ab77418046a08b80be6ac, type: 3}
   isAutomatic: 0
   fireRate: 0.2
   damage: 1

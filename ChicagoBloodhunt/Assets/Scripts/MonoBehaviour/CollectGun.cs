@@ -39,6 +39,11 @@ public class CollectGun : MonoBehaviour
         }
     }
 
+    private void OnValidate()
+    {
+        this.transform.Find("WeaponPickupGFX").GetComponent<SpriteRenderer>().sprite = weapon.icon;
+    }
+
     // Debug, only to make my life easier in the editor
     // Display Gizmos of doorPos object in editor
     private void OnDrawGizmos()
@@ -46,4 +51,5 @@ public class CollectGun : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(gameObject.transform.position, new Vector3(width, height, 1));
     }
+
 }
