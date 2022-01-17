@@ -12,6 +12,8 @@ public class SceneSwitch : MonoBehaviour // Script used to load new scene
         // when the new scene is loaded, character position and camera position is set to one stored in SavePosition.cs Vector2 position
         GameObject.Find("Player").transform.position = SavePosition.Load();
         SaveWeapons.Load();
+        SavePickedUpObjects.Load();
+        DeletePickedUpObjects.instance.RemoveObjectsFromScene();
     }
 
     // Used to switch scene to one with SceneName
@@ -25,6 +27,7 @@ public class SceneSwitch : MonoBehaviour // Script used to load new scene
     {
         SavePosition.Save(targetPosition);
         SaveWeapons.Save();
+        SavePickedUpObjects.Save();
 
         Time.timeScale = 0f;
         StartCoroutine(AnimationCoroutine(sceneName));

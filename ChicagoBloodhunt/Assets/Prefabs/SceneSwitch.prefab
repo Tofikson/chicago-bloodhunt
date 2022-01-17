@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6765824691855633027}
   - component: {fileID: 807763740967001851}
+  - component: {fileID: 1989734608938814508}
   m_Layer: 0
   m_Name: SceneSwitch
   m_TagString: Untagged
@@ -45,6 +46,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transition: {fileID: 4873467604904640549}
+--- !u!114 &1989734608938814508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3346142145695673494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db3d8eb31d3aaad48a13b96079dd6771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instance: {fileID: 0}
 --- !u!1 &5699939437089300709
 GameObject:
   m_ObjectHideFlags: 0

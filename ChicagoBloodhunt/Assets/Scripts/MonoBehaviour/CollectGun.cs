@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollectGun : MonoBehaviour
 {
@@ -8,6 +9,15 @@ public class CollectGun : MonoBehaviour
     public LayerMask playerLayer;   // Layer that the player is on
     public float width;             // Pickup collider width
     public float height;            // Pickup collider height
+
+    private string sceneName;
+    private string objectName;
+
+    private void Start()
+    {
+        sceneName = SceneManager.GetActiveScene().name;
+        objectName = gameObject.name;
+    }
 
     private void Update()
     {
@@ -23,6 +33,8 @@ public class CollectGun : MonoBehaviour
             }
 
             Debug.Log("Picked " + weapon.name);
+
+            DeletePickedUpObjects.instance.AddToList(sceneName, objectName);
             Destroy(gameObject);
         }
     }
