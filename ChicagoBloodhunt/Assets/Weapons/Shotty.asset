@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b966e71b7a218bc4b8b6891f62d23c65, type: 3}
-  m_Name: Pistol
+  m_Name: Shotty
   m_EditorClassIdentifier: 
-  name: Pistol
-  icon: {fileID: 21300000, guid: 9f6a3904053ab77418046a08b80be6ac, type: 3}
+  name: Shotty
+  icon: {fileID: 21300000, guid: 0b875933397520c4993c8bbc9af2994b, type: 3}
   isAutomatic: 0
-  useSpread: 0
-  spread: 0
-  isMultishot: 0
-  multishootRate: 1
-  fireRate: 0.5
+  useSpread: 1
+  spread: 5
+  isMultishot: 1
+  multishootRate: 8
+  fireRate: 1
   damage: 1
-  bulletLifetime: 2
+  bulletLifetime: 0.35

@@ -34,14 +34,56 @@ public class Shooting : MonoBehaviour
     {
         if(currentWeapon != null && shoot)
         {
-            Shoot();
+            if (!currentWeapon.useSpread)
+            {
+                Shoot();
+            }
+            else
+            {
+                ShootSpread();
+            }
         }
     }
 
-    //TODO ogieñ ci¹g³y
     void Shoot()
     {
-        Instantiate(bullet, FirePoint.position, FirePoint.rotation);
-        nextShoot = 0f;
+        if (!currentWeapon.isMultishot)
+        {
+            Instantiate(bullet, FirePoint.position, FirePoint.rotation);
+            nextShoot = 0f;
+        }
+        else
+        {
+            for(int i=0; i <= currentWeapon.multishootRate; i++)
+            {
+                Instantiate(bullet, FirePoint.position, FirePoint.rotation);
+                nextShoot = 0f;
+            }
+        }
+    }
+
+    void ShootSpread()
+    {
+        float tempRotZ = FirePoint.rotation.z;
+        if (!currentWeapon.isMultishot)
+        {
+            Instantiate(bullet, FirePoint.position, Quaternion.Euler(0.0f, 0.0f, Random.Range(tempRotZ + -currentWeapon.spread, tempRotZ + currentWeapon.spread)));
+            
+            nextShoot = 0f;
+        }
+        else
+        {
+            
+            if(GameObject.Find("Player").GetComponent<CharacterMovement>().isLeft)
+            {
+                tempRotZ += 180f;
+            }
+
+            for (int i = 0; i < currentWeapon.multishootRate; i++)
+            {
+                Instantiate(bullet, FirePoint.position, Quaternion.Euler(0.0f, 0.0f, Random.Range(tempRotZ + -currentWeapon.spread, tempRotZ + currentWeapon.spread)));
+                nextShoot = 0f;
+            }
+        }
     }
 }

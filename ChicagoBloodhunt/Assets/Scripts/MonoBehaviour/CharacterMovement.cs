@@ -11,8 +11,7 @@ public class CharacterMovement : MonoBehaviour
 
     bool isJumping = false;                                 // check if character wants to jump
     bool isOnGround = false;                                // check if character is on ground
-    bool isLeft;                                            // check if player faces left
-    bool isRight;                                           // check if player faces right
+    public bool isLeft;                                     // check if player faces left
 
     [SerializeField] private float speed = 10f;             // horizontal speed factor
     [SerializeField] private float smoothing = 0.1f;        // factor by which movement smoothing is applied
@@ -24,7 +23,6 @@ public class CharacterMovement : MonoBehaviour
     void Start()
     {
         rigidbody2D = GetComponent(typeof(Rigidbody2D)) as Rigidbody2D;
-        isRight = true;
     }
 
     void Update()
@@ -34,13 +32,11 @@ public class CharacterMovement : MonoBehaviour
         // Character fliping
         if(Input.GetKeyDown(KeyCode.A))
         {
-            isRight = false;
             isLeft = true;
             transform.eulerAngles = new Vector3(0, 180, 0);
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            isRight = true;
             isLeft = false;
             transform.eulerAngles = new Vector3(0, 0, 0);
         }

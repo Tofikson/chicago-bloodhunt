@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletTravel : MonoBehaviour
 {
     public float bulletspeed = 10f;
-    public float bulletLifetime = 5f;
+    float bulletLifetime;
     public Rigidbody2D impact;
 
     private float time;
@@ -14,6 +14,7 @@ public class BulletTravel : MonoBehaviour
     void Start()
     {
         impact.velocity = transform.right * bulletspeed;
+        bulletLifetime = GameObject.Find("Player").GetComponent<Shooting>().currentWeapon.bulletLifetime;
     }
 
     private void Update()

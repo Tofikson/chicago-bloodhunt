@@ -15,5 +15,10 @@ MonoBehaviour:
   name: Tommy
   icon: {fileID: 21300000, guid: 2e04140b9f069644d9961d32780c228d, type: 3}
   isAutomatic: 0
-  fireRate: 0.05
+  useSpread: 1
+  spread: 2
+  isMultishot: 0
+  multishootRate: 1
+  fireRate: 0.1
   damage: 1
+  bulletLifetime: 2
