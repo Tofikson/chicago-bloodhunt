@@ -95,7 +95,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletspeed: 30
-  bulletLifetime: 2
   impact: {fileID: 3570751077115740124}
 --- !u!96 &6303727159279195846
 TrailRenderer:
