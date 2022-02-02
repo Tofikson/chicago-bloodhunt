@@ -47,6 +47,7 @@ public class DeletePickedUpObjects : MonoBehaviour
         {
             if(obj.sName == SceneManager.GetActiveScene().name)
             {
+                Debug.Log("Destroyed object "+obj.oName);
                 Destroy(GameObject.Find(obj.oName));
             }
         }

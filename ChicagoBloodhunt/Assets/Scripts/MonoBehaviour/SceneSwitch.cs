@@ -27,6 +27,7 @@ public class SceneSwitch : MonoBehaviour // Script used to load new scene
     {
         SavePosition.Save(targetPosition);
         SaveWeapons.Save();
+        SaveCurrentHP.SaveHP(GameObject.Find("Player").GetComponent<PlayerHealth>().currentHP);
         SavePickedUpObjects.Save();
 
         Time.timeScale = 0f;

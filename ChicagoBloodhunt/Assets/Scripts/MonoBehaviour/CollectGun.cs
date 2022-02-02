@@ -48,7 +48,7 @@ public class CollectGun : MonoBehaviour
     // Display Gizmos of doorPos object in editor
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.green;
+        Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(gameObject.transform.position, new Vector3(width, height, 1));
     }
 
