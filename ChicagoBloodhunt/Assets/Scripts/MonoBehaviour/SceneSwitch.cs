@@ -13,6 +13,12 @@ public class SceneSwitch : MonoBehaviour // Script used to load new scene
         GameObject.Find("Player").transform.position = SavePosition.Load();
         SaveWeapons.Load();
         SavePickedUpObjects.Load();
+
+        if (GameObject.Find("Player").GetComponent<Shooting>().currentWeapon != null)
+        {
+            GameObject.Find("PlayerGFX").GetComponent<Animator>().runtimeAnimatorController = GameObject.Find("Player").GetComponent<Shooting>().currentWeapon.animatorController;
+        }
+
         DeletePickedUpObjects.instance.RemoveObjectsFromScene();
     }
 

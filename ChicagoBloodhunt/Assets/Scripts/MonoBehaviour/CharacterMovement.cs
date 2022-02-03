@@ -19,7 +19,6 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float jumpForce = 17.5f;       // jump force that is applied
     [SerializeField] private LayerMask groundLayer;         // layer on which ground objects should be
     [SerializeField] private Transform groundCheck;         // position which is used to determine if character is on ground
-    [SerializeField] private float groundSlamForce = 5f;    // force to be applied if the player presses down button while in air
 
     void Start()
     {
@@ -32,6 +31,8 @@ public class CharacterMovement : MonoBehaviour
         horVel = Input.GetAxisRaw("Horizontal") * speed;
 
         animator.SetFloat("Speed", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
+        animator.SetFloat("VertSpeed", rigidbody2D.velocity.y);
+        Debug.Log(rigidbody2D.velocity.y);
 
         // Character fliping
         if(Input.GetKeyDown(KeyCode.A))
@@ -79,12 +80,6 @@ public class CharacterMovement : MonoBehaviour
         {
             rigidbody2D.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             isJumping = false;
-        }
-
-        // If player wants to make his fall faster, he can press the DOWN button, and is in air, add vertical force towards the ground
-        if (Input.GetAxisRaw("Vertical") == -1f && !isOnGround)
-        {
-            rigidbody2D.AddForce(new Vector2(0f, groundSlamForce *-1), ForceMode2D.Impulse);
         }
     }
 }

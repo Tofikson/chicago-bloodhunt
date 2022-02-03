@@ -22,3 +22,4 @@ MonoBehaviour:
   fireRate: 1
   damage: 1
   bulletLifetime: 0.35
+  animatorController: {fileID: 9100000, guid: eeb745d60f1cef347b7a363af5168ca1, type: 2}

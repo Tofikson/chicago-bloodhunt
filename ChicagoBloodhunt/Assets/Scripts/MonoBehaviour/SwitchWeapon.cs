@@ -13,6 +13,7 @@ public class SwitchWeapon : MonoBehaviour
         {
             Debug.Log("Switching weapons");
             currentWeapon = GameObject.Find("Player").GetComponent<Shooting>().currentWeapon;
+            GameObject.Find("PlayerGFX").GetComponent<Animator>().runtimeAnimatorController = WeaponsInventory.instance.NextWeapon(currentWeapon).animatorController;
             GameObject.Find("Player").GetComponent<Shooting>().currentWeapon = WeaponsInventory.instance.NextWeapon(currentWeapon);
         }
     }

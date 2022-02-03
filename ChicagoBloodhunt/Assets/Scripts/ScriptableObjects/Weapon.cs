@@ -16,4 +16,5 @@ public class Weapon : ScriptableObject
     public float fireRate = 1f;             // weapon fire rate
     public float damage = 1f;               // weapon damage on hit
     public float bulletLifetime = 2f;       // lifetime of a bullet, what is the range of the weapon
+    public RuntimeAnimatorController animatorController;           // animator name to be used with current weapon
 }

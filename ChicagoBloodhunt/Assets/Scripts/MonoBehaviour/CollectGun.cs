@@ -30,6 +30,7 @@ public class CollectGun : MonoBehaviour
             if(GameObject.Find("Player").GetComponent<Shooting>().currentWeapon == null)
             {
                 GameObject.Find("Player").GetComponent<Shooting>().currentWeapon = weapon;
+                GameObject.Find("PlayerGFX").GetComponent<Animator>().runtimeAnimatorController = weapon.animatorController;
             }
 
             Debug.Log("Picked " + weapon.name);
