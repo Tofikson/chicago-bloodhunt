@@ -12,6 +12,7 @@ public class CharacterMovement : MonoBehaviour
     bool isJumping = false;                                 // check if character wants to jump
     bool isOnGround = false;                                // check if character is on ground
     public bool isLeft;                                     // check if player faces left
+    public Animator animator;
 
     [SerializeField] private float speed = 10f;             // horizontal speed factor
     [SerializeField] private float smoothing = 0.1f;        // factor by which movement smoothing is applied
@@ -29,6 +30,9 @@ public class CharacterMovement : MonoBehaviour
     {
         // Calculate character velocity in horizontal axis based on which (if any) button is pressed
         horVel = Input.GetAxisRaw("Horizontal") * speed;
+
+        animator.SetFloat("Speed", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
+
         // Character fliping
         if(Input.GetKeyDown(KeyCode.A))
         {
