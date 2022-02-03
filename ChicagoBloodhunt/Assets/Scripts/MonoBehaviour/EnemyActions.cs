@@ -6,7 +6,7 @@ public class EnemyActions : MonoBehaviour, ICollisionHandler
 {
 
     private Transform target;
-    private float attackCooldown;
+    [SerializeField]private float attackCooldown;
     private bool canAttack = true;
     private float timeSinceAttack;
 
@@ -18,7 +18,7 @@ public class EnemyActions : MonoBehaviour, ICollisionHandler
     {
         if (colliderName == "Dmg" && other.tag == "Player")
         {
-            other.GetComponent<CharacterActions>().TakeHit();
+            other.GetComponent<PlayerHealth>().playerHit(10f);
         }
         if (colliderName == "Sight" && other.tag == "Player")
         {
@@ -28,6 +28,7 @@ public class EnemyActions : MonoBehaviour, ICollisionHandler
             }
         }
     }
+
 
     private void Attack()
     {
@@ -43,7 +44,6 @@ public class EnemyActions : MonoBehaviour, ICollisionHandler
         {
             canAttack = false;
             timeSinceAttack = 0;
-
         }
     }
 }

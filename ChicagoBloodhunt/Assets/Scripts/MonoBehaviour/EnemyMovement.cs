@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 1.5f;
-    [SerializeField]private Vector3[] positions;
+    public float speed = 1.5f;
+    //public float speedAmp;
+    //bool charge;
+    [SerializeField] private Vector3[] positions;
     private int i;
-    bool isEnemyRight;
+    [SerializeField] bool isEnemyRight;
 
 
     void Update()
     {
+        Flip();
+        //Enemy walks towards set position
         transform.position = Vector2.MoveTowards(transform.position, positions[i], Time.deltaTime * speed);
         if (transform.position == positions[i])
         {
@@ -24,17 +28,26 @@ public class EnemyMovement : MonoBehaviour
                 i++;
             }
         }
-        //if (transform.position == positions[i + 1])
-        //{
-        //    Flip();
-        //}
+        //Enemy charges towards the player if player is in sight range
+
     }
-    //working flip but too late to think how tf this guy can rotate
-    private void Flip()
+    void Flip()
     {
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
-        isEnemyRight = !isEnemyRight;
+        if (i == positions.Length - 1)
+        {
+            if (!isEnemyRight)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+                isEnemyRight = true;
+            }
+        }
+        else
+        {
+            if (isEnemyRight)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+                isEnemyRight = false;
+            }
+        }
     }
 }

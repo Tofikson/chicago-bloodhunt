@@ -23,6 +23,11 @@ public class PlayerHealth : MonoBehaviour
             currentHP = maxHp;
         }
         GameObject.Find("HP").GetComponent<RawImage>().texture = paskiHP[(int)Mathf.Ceil(currentHP / 10)].texture;
+
+        if(maxHp == 0)
+        {
+            //death
+        }
     }
 
     public void playerHit(float damage)

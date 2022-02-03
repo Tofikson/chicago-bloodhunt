@@ -838,6 +838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa8c9c5a154fb242b4c75f66696a1d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackCooldown: 3
 --- !u!114 &1381089451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -854,6 +855,7 @@ MonoBehaviour:
   positions:
   - {x: 19.8, y: -1.492, z: 0}
   - {x: 10.8, y: -1.492, z: 0}
+  isEnemyRight: 1
 --- !u!4 &1381089452 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1216378588490483434, guid: ee0428cc5f7fd224aa4f4ea133cdc331, type: 3}
