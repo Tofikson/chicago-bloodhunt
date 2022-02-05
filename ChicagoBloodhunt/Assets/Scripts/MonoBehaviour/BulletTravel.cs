@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletTravel : MonoBehaviour
 {
+    public Weapon weapon;
     public float bulletspeed = 10f;
     float bulletLifetime;
     public Rigidbody2D impact;
@@ -13,6 +14,7 @@ public class BulletTravel : MonoBehaviour
 // Start is called before the first frame update
     void Start()
     {
+        weapon = GameObject.Find("Player").GetComponent<Shooting>().currentWeapon;
         impact.velocity = transform.right * bulletspeed;
         bulletLifetime = GameObject.Find("Player").GetComponent<Shooting>().currentWeapon.bulletLifetime;
     }

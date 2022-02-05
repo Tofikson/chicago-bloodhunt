@@ -9,27 +9,20 @@ public class EnemyMovement : MonoBehaviour
     //bool charge;
     [SerializeField] private Vector3[] positions;
     private int i;
-    [SerializeField] bool isEnemyRight;
+    [SerializeField]public bool isEnemyRight;
 
 
     void Update()
     {
         Flip();
-        //Enemy walks towards set position
-        transform.position = Vector2.MoveTowards(transform.position, positions[i], Time.deltaTime * speed);
-        if (transform.position == positions[i])
+        if (gameObject.GetComponent<EnemyActions>().isAgro)
         {
-            if (i == positions.Length - 1)
-            {
-                i = 0;
-            }
-            else
-            {
-                i++;
-            }
+            FollowPlayer();
         }
-        //Enemy charges towards the player if player is in sight range
-
+        else
+        {
+            Roam();
+        }
     }
     void Flip()
     {
@@ -48,6 +41,29 @@ public class EnemyMovement : MonoBehaviour
                 transform.localScale = new Vector3(1, 1, 1);
                 isEnemyRight = false;
             }
+        }
+    }
+    void Roam()
+    {
+        //Enemy walks towards set position
+        transform.position = Vector2.MoveTowards(transform.position, positions[i], Time.deltaTime * speed);
+        if (transform.position == positions[i])
+        {
+            if (i == positions.Length - 1)
+            {
+                i = 0;
+            }
+            else
+            {
+                i++;
+            }
+        }
+    }
+    void FollowPlayer()
+    {
+        if(transform.position.x >= positions[1].x && transform.position.x <= positions[0].x)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(GameObject.Find("Player").transform.position.x, transform.position.y), Time.deltaTime * speed * 2);
         }
     }
 }

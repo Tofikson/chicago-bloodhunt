@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Doors
   - Gun
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - Doors
   - Player
   - Bullets
-  - 
-  - 
+  - Enemy Sight
+  - Enemy DMG
   - 
   - 
   - 

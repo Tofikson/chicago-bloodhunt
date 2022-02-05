@@ -523,7 +523,7 @@ GameObject:
   - component: {fileID: 1064541682}
   - component: {fileID: 1064541681}
   - component: {fileID: 1064541680}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Dmg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -838,7 +838,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa8c9c5a154fb242b4c75f66696a1d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCooldown: 3
+  knockback: {x: 15, y: 5}
+  attackCooldown: 10
+  isAgro: 0
 --- !u!114 &1381089451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -861,6 +863,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1216378588490483434, guid: ee0428cc5f7fd224aa4f4ea133cdc331, type: 3}
   m_PrefabInstance: {fileID: 8526481582371927201}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1381089454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381089449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f63cf4618618bea4198aa13887168f44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  currentHealth: 0
 --- !u!1001 &1569468821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1059,7 +1075,7 @@ GameObject:
   - component: {fileID: 1867743285}
   - component: {fileID: 1867743286}
   - component: {fileID: 1867743287}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sight
   m_TagString: Untagged
   m_Icon: {fileID: 0}

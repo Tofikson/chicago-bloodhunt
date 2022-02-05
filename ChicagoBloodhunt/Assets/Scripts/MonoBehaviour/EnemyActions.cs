@@ -5,13 +5,21 @@ using UnityEngine;
 public class EnemyActions : MonoBehaviour, ICollisionHandler
 {
 
+    [SerializeField]private Vector2 knockback;
     private Transform target;
     [SerializeField]private float attackCooldown;
     private bool canAttack = true;
     private float timeSinceAttack;
+    private float newSpeed;
+    public bool isAgro;
 
+    private void Start()
+    {
+        newSpeed = gameObject.GetComponent<EnemyMovement>().speed * 2;
+    }
     private void Update()
     {
+        if (!isAgro) return;
         Attack();
     }
     public void CollisionEnter(string colliderName, GameObject other)
@@ -19,18 +27,32 @@ public class EnemyActions : MonoBehaviour, ICollisionHandler
         if (colliderName == "Dmg" && other.tag == "Player")
         {
             other.GetComponent<PlayerHealth>().playerHit(10f);
-        }
-        if (colliderName == "Sight" && other.tag == "Player")
-        {
-            if (target = null)
+            other.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            if (other.transform.position.x >= gameObject.transform.position.x)
             {
-                this.target = other.transform;
+                other.GetComponent<Rigidbody2D>().AddForce(knockback, ForceMode2D.Impulse);
             }
+            else
+            {
+                other.GetComponent<Rigidbody2D>().AddForce(new Vector2(knockback.x * -1, knockback.y), ForceMode2D.Impulse);
+            }
+        }
+        if (colliderName == "Dmg" && other.layer == LayerMask.NameToLayer("Bullets"))
+        {
+            gameObject.GetComponent<EnemyHP>().GetHit(other.GetComponent<BulletTravel>().weapon.damage);
+        }
+        if (colliderName == "Sight" && other.layer == LayerMask.NameToLayer("Player"))
+        {
+            isAgro = true;
+        }
+        else
+        {
+            isAgro = false;
         }
     }
 
 
-    private void Attack()
+    public void Attack()
     {
         if (!canAttack)
         {
