@@ -21,6 +21,8 @@ public class CollectGun : MonoBehaviour
 
     private void Update()
     {
+        if (GameObject.Find("Player").GetComponent<VampireBuff>().vampBuff) return;
+
         // If player collides with weapon collider, then pick up the weapon and destroy pickup
         if (Physics2D.OverlapBox(gameObject.transform.position, new Vector2(width, height), 0, playerLayer))
         {

@@ -237,6 +237,17 @@ Transform:
   m_Father: {fileID: 473257384}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &104597673 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 104597673, guid: 12dc7327738dd3546b350c27398176e2, type: 3}
+  m_PrefabInstance: {fileID: 7504288998343167890}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aacf7f2856311c41804c2914a5a00fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &183633292 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1106790974923890398, guid: 0da5cce44f5b94049849ecf23ea2a9b3, type: 3}
@@ -980,6 +991,17 @@ Transform:
   m_Father: {fileID: 473257384}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1178774188 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1178774188, guid: 12dc7327738dd3546b350c27398176e2, type: 3}
+  m_PrefabInstance: {fileID: 7504288998343167890}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cd4124bb432b7a4e803d72cfe122183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1421589621 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1106790974923890398, guid: 0da5cce44f5b94049849ecf23ea2a9b3, type: 3}
@@ -1475,6 +1497,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1668607581, guid: dba9b8620434e144fa53b3c249acdd77, type: 3}
+      propertyPath: ui
+      value: 
+      objectReference: {fileID: 1178774188}
     - target: {fileID: 2527290685555449459, guid: dba9b8620434e144fa53b3c249acdd77, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1523,6 +1549,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4973851376329451709, guid: dba9b8620434e144fa53b3c249acdd77, type: 3}
+      propertyPath: lose
+      value: 
+      objectReference: {fileID: 104597673}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dba9b8620434e144fa53b3c249acdd77, type: 3}
 --- !u!1001 &5091655874004098615
@@ -1727,10 +1757,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1302324328, guid: 12dc7327738dd3546b350c27398176e2, type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3346142145695673494, guid: 12dc7327738dd3546b350c27398176e2, type: 3}
       propertyPath: m_Name
       value: SceneSwitch

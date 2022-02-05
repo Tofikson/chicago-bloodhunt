@@ -14,9 +14,9 @@ public class CharacterMovement : MonoBehaviour
     public bool isLeft;                                     // check if player faces left
     public Animator animator;
 
-    [SerializeField] private float speed = 10f;             // horizontal speed factor
+    public float speed = 10f;                               // horizontal speed factor
     [SerializeField] private float smoothing = 0.1f;        // factor by which movement smoothing is applied
-    [SerializeField] private float jumpForce = 17.5f;       // jump force that is applied
+    public float jumpForce = 17.5f;       // jump force that is applied
     [SerializeField] private LayerMask groundLayer;         // layer on which ground objects should be
     [SerializeField] private Transform groundCheck;         // position which is used to determine if character is on ground
 
@@ -32,7 +32,6 @@ public class CharacterMovement : MonoBehaviour
 
         animator.SetFloat("Speed", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
         animator.SetFloat("VertSpeed", rigidbody2D.velocity.y);
-        Debug.Log(rigidbody2D.velocity.y);
 
         // Character fliping
         if(Input.GetKeyDown(KeyCode.A))

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneSwitch : MonoBehaviour // Script used to load new scene
 {
     public Animator transition;
+    public VampireBuff vamp;
 
     public virtual void Start()
     {
@@ -13,6 +14,7 @@ public class SceneSwitch : MonoBehaviour // Script used to load new scene
         GameObject.Find("Player").transform.position = SavePosition.Load();
         SaveWeapons.Load();
         SavePickedUpObjects.Load();
+        SaveVampState.LoadVamp();
 
         if (GameObject.Find("Player").GetComponent<Shooting>().currentWeapon != null)
         {
@@ -35,6 +37,8 @@ public class SceneSwitch : MonoBehaviour // Script used to load new scene
         SaveWeapons.Save();
         SaveCurrentHP.SaveHP(GameObject.Find("Player").GetComponent<PlayerHealth>().currentHP);
         SavePickedUpObjects.Save();
+        SaveCurrentHP.SaveAntidote(GameObject.Find("Player").GetComponent<AntidoteScript>().currentAntidote);
+        SaveVampState.SaveVamp();
 
         Time.timeScale = 0f;
         StartCoroutine(AnimationCoroutine(sceneName));

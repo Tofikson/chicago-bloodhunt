@@ -119,6 +119,8 @@ GameObject:
   - component: {fileID: 8512449787756605930}
   - component: {fileID: 5960849182771130543}
   - component: {fileID: 4973851376329451709}
+  - component: {fileID: 1668607581}
+  - component: {fileID: 658300858}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -276,7 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 70
-  currentHP: 0
+  currentHP: 70
   paskiHP:
   - {fileID: 21300000, guid: 74fbfbf8fbd2e9b4f8dbe4f671f402e7, type: 3}
   - {fileID: 21300000, guid: 2e4163a5d716beb46b6d13fc6cb3c55b, type: 3}
@@ -286,6 +288,40 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6b58d22ef065b164cb4298de45c16070, type: 3}
   - {fileID: 21300000, guid: db4f99b94e139d04b9ac265e926afe52, type: 3}
   - {fileID: 21300000, guid: 35d7f8dfb8886904492765484d8fc25e, type: 3}
+  lose: {fileID: 0}
+--- !u!114 &1668607581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2527290685555449459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 333f6f9e7713f3a4fbe3a853cdcfb6d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxAntidote: 2
+  currentAntidote: 0
+  ui: {fileID: 0}
+--- !u!114 &658300858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2527290685555449459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8fda2c97b075214aa385b3079748ec2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vampBuff: 0
+  speedBuff: 3
+  jumpBuff: 5
+  durationLenght: 10
+  duration: 0
+  vampAnim: {fileID: 9100000, guid: 33cf13ec6317f0844b8ee213707966b0, type: 2}
 --- !u!1 &2527290685973299513
 GameObject:
   m_ObjectHideFlags: 0
