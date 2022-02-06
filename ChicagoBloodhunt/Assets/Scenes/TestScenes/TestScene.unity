@@ -882,6 +882,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1106790974923890398, guid: 0da5cce44f5b94049849ecf23ea2a9b3, type: 3}
   m_PrefabInstance: {fileID: 1744570380}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1043135408 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 438034780, guid: dba9b8620434e144fa53b3c249acdd77, type: 3}
+  m_PrefabInstance: {fileID: 794241240403833894}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1058306692
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1058306693}
+  - component: {fileID: 1058306694}
+  m_Layer: 8
+  m_Name: VampAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1058306693
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058306692}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.032333337, z: 0}
+  m_LocalScale: {x: 0.33333337, y: 0.33333337, z: 0.33333334}
+  m_Children: []
+  m_Father: {fileID: 1043135408}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1058306694
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058306692}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1142637630
 GameObject:
   m_ObjectHideFlags: 0
@@ -1497,6 +1559,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 438034782, guid: dba9b8620434e144fa53b3c249acdd77, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 33cf13ec6317f0844b8ee213707966b0, type: 2}
+    - target: {fileID: 658300858, guid: dba9b8620434e144fa53b3c249acdd77, type: 3}
+      propertyPath: cooldownDuration
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1668607581, guid: dba9b8620434e144fa53b3c249acdd77, type: 3}
       propertyPath: ui
       value: 
@@ -1666,10 +1736,6 @@ PrefabInstance:
     - target: {fileID: 5540990121874042791, guid: 565a267ff98e1194cb76c54707726187, type: 3}
       propertyPath: m_Name
       value: HealthPickup
-      objectReference: {fileID: 0}
-    - target: {fileID: 5540990122346355521, guid: 565a267ff98e1194cb76c54707726187, type: 3}
-      propertyPath: m_SortingOrder
-      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 565a267ff98e1194cb76c54707726187, type: 3}

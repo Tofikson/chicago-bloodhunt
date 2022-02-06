@@ -21,8 +21,8 @@ public class SwitchWeapon : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Q) && WeaponsInventory.instance.weapons.Any() && (GameObject.Find("Player").GetComponent<Shooting>().currentWeapon == null))
         {
-            GameObject.Find("PlayerGFX").GetComponent<Animator>().runtimeAnimatorController = currentWeapon.animatorController;
-            GameObject.Find("Player").GetComponent<Shooting>().currentWeapon = currentWeapon;
+            GameObject.Find("PlayerGFX").GetComponent<Animator>().runtimeAnimatorController = WeaponsInventory.instance.weapons[1].animatorController;
+            GameObject.Find("Player").GetComponent<Shooting>().currentWeapon = WeaponsInventory.instance.weapons[1];
         }
     }
 

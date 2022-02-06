@@ -321,7 +321,8 @@ MonoBehaviour:
   jumpBuff: 5
   durationLenght: 10
   duration: 0
-  vampAnim: {fileID: 9100000, guid: 33cf13ec6317f0844b8ee213707966b0, type: 2}
+  vampAnim: {fileID: 9100000, guid: 44de7512f6901b4468ee7ee4f7a5fc5c, type: 2}
+  noWeapon: {fileID: 9100000, guid: 33cf13ec6317f0844b8ee213707966b0, type: 2}
 --- !u!1 &2527290685973299513
 GameObject:
   m_ObjectHideFlags: 0

@@ -29,5 +29,6 @@ public class SaveVampState : ScriptableObject
         GameObject.Find("Player").GetComponent<VampireBuff>().normalSpeed = normalSpeed;
         GameObject.Find("Player").GetComponent<VampireBuff>().lastWeapon = lastWeapon;
         GameObject.Find("Player").GetComponent<VampireBuff>().buffStarted = started;
+        GameObject.Find("Player").GetComponent<VampireBuff>().VampFormAnimation();
     }
 }
